@@ -1,0 +1,14 @@
+<h1><%= @artist.name %></h1>
+
+<h2>Hometown: <%= @artist.hometown %></h2>
+
+<h3><%= @artist.user_name %></h3>
+
+<ul>
+    <% @artist.sessions do |session| %>
+        <li>
+            <%= link_to session.appointment.to_s, session_path(session) %>
+        </li>
+    <% end %>
+
+</ul>

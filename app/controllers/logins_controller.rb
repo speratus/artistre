@@ -15,6 +15,12 @@ class LoginsController < ApplicationController
         end
 
         session[:artist_id] = artist.id
+        redirect_to artist_path(artist.id)
+    end
+
+    def destroy
+        reset_session
+        redirect_to login_path
     end
 
     private

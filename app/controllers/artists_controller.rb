@@ -1,6 +1,8 @@
 class ArtistsController < ApplicationController
+    before_action :select_artist, only: [:show, :edit]
+    
     def new
-        
+        @artist = Artist.new
     end
 
     def create
