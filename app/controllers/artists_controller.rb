@@ -26,7 +26,7 @@ class ArtistsController < ApplicationController
     private
 
     def select_artist
-        @artist = Artist.find(session[:artist_id])
+        @artist = Artist.find_by(id: session[:artist_id])
     end
 
     def artist_params
