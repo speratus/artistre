@@ -8,4 +8,6 @@ Rails.application.routes.draw do
     resources :sessions, only: [:show]
   end
 
+  get '/login/', to: 'logins#new'
+  post '/login/', to: 'logins#create'
 end
