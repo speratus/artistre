@@ -3,6 +3,7 @@
 <h2>Hometown: <%= @artist.hometown %></h2>
 
 <h3><%= @artist.user_name %></h3>
+<div><%= link_to "New Session", new_artist_session_path(@artist.id) %></div>
 
 <ul>
     <% @artist.sessions.each do |session| %>

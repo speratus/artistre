@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-    before_action :get_session, only: [:edit, :update, :delete]
+    before_action :get_session, only: [:edit, :update, :destroy]
 
     def new
         @session = Session.new
@@ -23,15 +23,23 @@ class SessionsController < ApplicationController
     end
 
     def edit
-
+        
     end
 
     def update
-
+        data = session_params
+        data[:artist_id] = params[:artist_id]
+        if @session.update(data)
+            @session.save
+            redirect_to artist_session_path(id: @session.id)
+        else
+            render :edit
+        end
     end
 
     def destroy
-
+        @session.destroy 
+        redirect_to artist_path(session[:artist_id])
     end
 
     private
@@ -42,6 +50,7 @@ class SessionsController < ApplicationController
 
     def get_session
         @session = Session.find_by(id: params.require(:id))
+        # byebug
         return head(:forbidden) unless @session.artist_id == session[:artist_id]
     end
 
