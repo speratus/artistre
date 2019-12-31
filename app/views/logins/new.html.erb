@@ -1,18 +1,20 @@
-<div>
+<div class = 'field'>
     <% if flash[:error] %>
     <div class ="error"><%= flash[:error] %></div>
     <% end %>
 
     <%= form_tag('/login/') do %>
-    <%= label_tag("Enter Username: ") %>
-    <%= text_field_tag(:user_name) %><br>
+    <div class = 'control'>
+    <%= label_tag("Enter Username: ", nil, class: 'label') %>
+    <%= text_field_tag(:user_name, nil, class: 'input is-info') %><br>
+    </div>
+    <div class = 'control'>
+    <%= label_tag("Enter Password: ", nil, class: 'label') %>
+    <%= password_field_tag(:password, nil, class: 'input is-info') %><br>
+    </div>
 
-    <%= label_tag("Enter Password: ") %>
-    <%= password_field_tag(:password) %><br>
-
-
-    <%= submit_tag("Submit") %>
+    <%= submit_tag("Submit", class: 'button') %>
     <% end %>
 
-    <%= button_to "Create New Artist", new_artist_path, method: :get %>
+    <%= button_to "Create New Artist", new_artist_path, method: :get, class: 'button' %>
 </div>

@@ -10,6 +10,19 @@
   </head>
 
   <body>
+  <nav class = 'navbar'>
+    <div class = 'navbar-brand'>
+    <%= link_to "ArtistRe", login_path, class: 'navbar-item' %>
+    </div>
+    <div class = 'navbar-menu'>
+      <div class = 'navbar-start'>
+      <% if session[:artist_id] != nil %>
+          <%= link_to "Profile", artist_path(session[:artist_id]), class: 'navbar-item' %>
+          <% end %>
+          <%= link_to "Studios", studios_path, class: 'navbar-item' %>
+        </div>
+    </div>
+  </nav>
     <%= yield %>
   </body>
 </html>

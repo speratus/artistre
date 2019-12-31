@@ -1,7 +1,6 @@
 module ArtistsHelper
     def next_session(artist)
        val = get_future_sessions(artist.sessions)
-       byebug
        val.order('appointment desc').first
 
     end
