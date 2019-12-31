@@ -1,5 +1,15 @@
 <%= form_for(@artist) do |f| %>
 
+    <% if @artist.errors.any? %>
+        <ul>
+            <% @artist.errors.full_messages.each do |msg| %>
+                <li>
+                    <%= msg %>
+                </li>
+            <% end %>
+        </ul>
+    <% end %>
+
     <%= f.label :name %>
     <%= f.text_field :name %>
     <br>

@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'Faker'
+
+puts "generating studios"
+15.times do
+    Studio.create(name: "#{Faker::Company.name} Studios", location: Faker::Address.city)
+end
+puts "studios Generated!"

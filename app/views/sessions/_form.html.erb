@@ -1,0 +1,23 @@
+<%= form_for(@session, url: artist_sessions_path) do |f| %>
+
+    <% if @session.errors.any? %>
+        <ul>
+            <% @session.errors.full_messages.each do |msg| %>
+                <li>
+                    <%= msg %>
+                </li>
+            <% end %>
+        </ul>
+    <% end %>
+
+    <%= f.label :appointment %>
+    <%= f.datetime_select :appointment, discard_minute: true, ampm: true, start_hour: 10, end_hour: 20, start_year: Time.now.year %>
+    <br>
+
+    <%= f.label :studio_id %>
+    <%= f.collection_select :studio_id, Studio.all, :id, :name %>
+    <br>
+
+    <%= f.submit %>
+
+<% end %>

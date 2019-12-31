@@ -5,9 +5,9 @@
 <h3><%= @artist.user_name %></h3>
 
 <ul>
-    <% @artist.sessions do |session| %>
+    <% @artist.sessions.each do |session| %>
         <li>
-            <%= link_to session.appointment.to_s, session_path(session) %>
+            <%= link_to session.show_date_and_time, artist_session_path(session) %>
         </li>
     <% end %>
 
