@@ -4,6 +4,8 @@
 
 <h3><%= @artist.user_name %></h3>
 <div><%= link_to "New Session", new_artist_session_path(@artist.id) %></div>
+<% next_sessn = next_session(@artist) %>
+<br><div> Next Session: <%= link_to next_sessn.show_date_and_time, artist_session_path(next_sessn) %>
 
 <ul>
     <% @artist.sessions.each do |session| %>
@@ -13,3 +15,8 @@
     <% end %>
 
 </ul>
+
+<br>
+
+<%= link_to "Edit Artist Info", edit_artist_path(@artist)%>
+<%= link_to "Logout", '/logout' %>

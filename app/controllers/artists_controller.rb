@@ -1,5 +1,5 @@
 class ArtistsController < ApplicationController
-    before_action :select_artist, only: [:show, :edit]
+    before_action :select_artist, only: [:show, :edit, :update]
     
     def new
         @artist = Artist.new
@@ -23,6 +23,11 @@ class ArtistsController < ApplicationController
     end
 
     def update
+        if @artist.update(artist_params)
+            redirect_to (@artist)
+        else
+            render 'edit'
+        end
     end
 
     private

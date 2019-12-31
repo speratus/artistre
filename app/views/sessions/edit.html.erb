@@ -1,4 +1,4 @@
-<%= form_for(@session, url: artist_session_path(@session.id)) do |f| %>
+<%= form_for(@session, url: artist_session_path(@session.artist_id)) do |f| %>
 
     <% if @session.errors.any? %>
         <ul>

@@ -20,6 +20,6 @@ class Session < ApplicationRecord
     end
 
     def show_date_and_time
-        appointment.strftime("%B %d, %Y at %I %p")
+        "#{appointment.strftime("%B %d, %Y at %I %p")} - #{self.studio.name}"
     end
 end

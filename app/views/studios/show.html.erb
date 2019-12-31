@@ -1,0 +1,10 @@
+<h1><%= @studio.name %></h1>
+<h2><%= @studio.location %></h2>
+<% tp_artist = top_artist(@studio) %>
+<div>Artist the records here the most: <%= link_to tp_artist.name, artist_path(tp_artist) %> </div>
+
+<ul>
+    <% @studio.sessions.each do |ssn| %>
+    <li><%= link_to ssn.show_date_and_time, studio_session_path(id: ssn.id, studio_id: ssn.studio_id) %></li>
+    <% end %>
+</ul>
