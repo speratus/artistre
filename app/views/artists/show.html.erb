@@ -5,12 +5,12 @@
 <h3><%= @artist.user_name %></h3>
 <div><%= link_to "New Session", new_artist_session_path(@artist.id) %></div>
 <% next_sessn = next_session(@artist) %>
-<br><div> Next Session: <%= link_to next_sessn.show_date_and_time, artist_session_path(next_sessn) %>
+<br><div> Next Session: <%= link_to next_sessn.show_date_and_time, artist_session_path(id: next_sessn.id, artist_id: next_sessn.artist_id) %>
 
 <ul>
     <% @artist.sessions.each do |session| %>
         <li>
-            <%= link_to session.show_date_and_time, artist_session_path(session) %>
+            <%= link_to session.show_date_and_time, artist_session_path(id: session.id, artist_id: session.artist_id) %>
         </li>
     <% end %>
 
