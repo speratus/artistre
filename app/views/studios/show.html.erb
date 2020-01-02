@@ -9,7 +9,7 @@
 <% if @studio.sessions.count > 0 %>
 <% tp_artist = top_artist(@studio) %>
 <div>Artist that records here the most: <%= link_to tp_artist.name, artist_path(tp_artist) %> </div>
-
+<section class='section has-background-white-ter'>
 <ul>
     <% @studio.sessions.each do |ssn| %>
     <li><%= link_to ssn.show_date_and_time, studio_session_path(id: ssn.id, studio_id: ssn.studio_id) %></li>
@@ -18,3 +18,4 @@
 <% else %>
 <div> There are no sessions scheduled for this studio. </div>
 <% end %>
+</section>

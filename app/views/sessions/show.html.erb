@@ -1,9 +1,16 @@
-<h1>
+<section class='hero is-primary'>
+<div class='hero-body'>
+<div class='container'>
+<h1 class='title'>
     <%= @session.show_date_and_time %>
 </h1>
 
-<h2>Artist: <%= @session.artist.name %></h2>
-<h2>Studio: <%= link_to @session.studio.name, studio_path(@session.studio) %></h2>
-
-<%= link_to "Edit Session", edit_artist_session_path(@session.id) %>
-<%= link_to "Delete Session", artist_session_path(@session.id), method: :delete %>
+<h2 class='subtitle'>Artist: <%= @session.artist.name %></h2>
+</div>
+</div>
+</section>
+<section class='section is-size-4 has-background-white-ter'>Studio: <%= link_to @session.studio.name, studio_path(@session.studio) %></section>
+<section class='section'>
+<%= link_to "Edit Session", edit_artist_session_path(@session.id), class: 'button is-info' %>
+<%= link_to "Delete Session", artist_session_path(@session.id), method: :delete, class: 'button is-info' %>
+</section>

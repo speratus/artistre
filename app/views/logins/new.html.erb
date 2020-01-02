@@ -1,4 +1,4 @@
-<div class = 'field'>
+<div class = 'field has-background-primary'>
     <% if flash[:error] %>
     <div class ="error"><%= flash[:error] %></div>
     <% end %>
@@ -12,9 +12,9 @@
     <%= label_tag("Enter Password: ", nil, class: 'label') %>
     <%= password_field_tag(:password, nil, class: 'input is-info') %><br>
     </div>
-
-    <%= submit_tag("Submit", class: 'button') %>
-    <% end %>
-
-    <%= button_to "Create New Artist", new_artist_path, method: :get, class: 'button' %>
+    <section class='has-text-centered'>
+        <%= submit_tag("Submit", class: 'button is-link') %>
+        <%= link_to "Create New Artist", new_artist_path, class: 'button is-link' %>
+    </section>
+    <% end %> 
 </div>

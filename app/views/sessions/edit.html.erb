@@ -1,23 +1,44 @@
+<section class='hero is-primary'>
+    <div class='hero-body'>
+        <div class='container'>
+            <h1 class='title'> Edit Session </h1>
+        </div>
+    </div>
+</section>
+
+<div class='has-background-white-ter'>
+<div class='columns'>
+<div class='column is-half'>
 <%= form_for(@session, url: artist_session_path(@session.artist_id)) do |f| %>
 
+    <section class='has-text-danger'>
     <% if @session.errors.any? %>
         <ul>
             <% @session.errors.full_messages.each do |msg| %>
-                <li>
+                <li class = 'has-text-danger'>
                     <%= msg %>
                 </li>
             <% end %>
         </ul>
     <% end %>
-
-    <%= f.label :appointment %>
-    <%= f.datetime_select :appointment, discard_minute: true, ampm: true, start_hour: 10, end_hour: 20, start_year: Time.now.year %>
+    </section>
+    <div class='control'>
+    <%= f.label :appointment, class: 'label' %>
+    <%= f.datetime_select :appointment, {discard_minute: true, ampm: true, start_hour: 10, end_hour: 20, start_year: Time.now.year}, {class: 'select'} %>
+    </div>
     <br>
 
-    <%= f.label :studio_id %>
+    <div class='control'>
+    <%= f.label :studio_id, class: 'label' %>
+    <div class='select'>
     <%= f.collection_select :studio_id, Studio.all, :id, :name %>
+    </div>
+    </div>
     <br>
 
-    <%= f.submit %>
+    <%= f.submit class: 'button is-info' %>
 
 <% end %>
+</div>
+</div>
+</div>

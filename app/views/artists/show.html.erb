@@ -32,6 +32,6 @@
 </section>
 <br>
 <div class='buttons'>
-<button class='button is-link is-light'><%= link_to "Edit Artist Info", edit_artist_path(@artist)%></button>
-<button class='button is-link is-light'><%= link_to "Logout", '/logout' %></button>
+<%= link_to "Edit Artist Info", edit_artist_path(@artist), class: 'button is-link'%>
+<%= link_to "Logout", '/logout', class: 'button is-link' %>
 </div>

@@ -33,8 +33,15 @@ class ArtistsController < ApplicationController
     private
 
     def select_artist
-        @artist = Artist.find_by(id: params[:id])
-        return head(:forbidden) unless @artist.id == session[:artist_id]
+        if session[:artist_id] == nil
+            redirect_to login_path
+            return
+        end
+            @artist = Artist.find_by(id: params[:id])
+        # return head(:forbidden) unless @artist.id == session[:artist_id]
+        if @artist.id != session[:artist_id]
+            redirect_to artist_path(session[:artist_id])
+        end
     end
 
     def artist_params
