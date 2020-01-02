@@ -3,7 +3,7 @@
     <% if @session.errors.any? %>
         <ul>
             <% @session.errors.full_messages.each do |msg| %>
-                <li>
+                <li class = 'has-text-danger'>
                     <%= msg %>
                 </li>
             <% end %>

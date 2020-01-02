@@ -9,6 +9,8 @@ class SessionsController < ApplicationController
         data = session_params
         data[:artist_id] = params[:artist_id]
         @session = Session.new(data)
+        appt_date = @session.appointment
+        @session.appointment = appt_date.beginning_of_hour
         
         # byebug
         if @session.save
