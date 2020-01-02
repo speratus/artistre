@@ -1,7 +1,16 @@
-<h1> Studios </h1>
-
-<ul>
+<section class='hero is-primary'>
+<div class='hero-body'>
+<div class='container'>
+<h1 class='title'> Studios </h1>
+</div>
+</div>
+</section>
+<section class='section has-background-grey-light'>
 <% @studios.each do |studio| %>
-<li><%= link_to studio.name, studio_path(studio) %></li>
+<div class='level'> 
+<div class='level-item'>
+<%= link_to studio.name, studio_path(studio) %>
+</div>
+</div>
 <% end %>
-</ul>
+</section>
