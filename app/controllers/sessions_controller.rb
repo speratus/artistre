@@ -12,7 +12,6 @@ class SessionsController < ApplicationController
         appt_date = @session.appointment
         @session.appointment = appt_date.beginning_of_hour
         
-        # byebug
         if @session.save
             redirect_to artist_session_path(id: @session.id)
         else
@@ -52,7 +51,6 @@ class SessionsController < ApplicationController
 
     def get_session
         @session = Session.find_by(id: params.require(:id))
-        # byebug
         return head(:forbidden) unless @session.artist_id == session[:artist_id]
     end
 
