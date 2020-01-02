@@ -1,20 +1,41 @@
-<div class = 'field has-background-primary'>
+<section class="hero is-primary">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">Please Login</h1>
+        </div>
+    </div>
+</section>
+
+
+<section class="section">
+    
     <% if flash[:error] %>
-    <div class ="error"><%= flash[:error] %></div>
+        <div class ="error"><%= flash[:error] %></div>
     <% end %>
 
     <%= form_tag('/login/') do %>
-    <div class = 'control'>
-    <%= label_tag("Enter Username: ", nil, class: 'label') %>
-    <%= text_field_tag(:user_name, nil, class: 'input is-info') %><br>
-    </div>
-    <div class = 'control'>
-    <%= label_tag("Enter Password: ", nil, class: 'label') %>
-    <%= password_field_tag(:password, nil, class: 'input is-info') %><br>
-    </div>
-    <section class='has-text-centered'>
-        <%= submit_tag("Submit", class: 'button is-link') %>
-        <%= link_to "Create New Artist", new_artist_path, class: 'button is-link' %>
-    </section>
+
+        <div class="field">
+            <div class = 'control'>
+                <%= label_tag("Enter Username: ", nil, class: 'label') %>
+                <%= text_field_tag(:user_name, nil, class: 'input is-info') %><br>
+            </div>
+        </div>
+
+        <div class="field">
+            <div class = 'control'>
+                <%= label_tag("Enter Password: ", nil, class: 'label') %>
+                <%= password_field_tag(:password, nil, class: 'input is-info') %><br>
+            </div>
+        </div>
+
+
+        <div class="field">
+            <div class="buttons has-text-centered">
+                <%= submit_tag("Submit", class: 'button is-link') %>
+                <%= link_to "Create New Artist", new_artist_path, class: 'button is-link' %>
+            </div>
+        </div>
     <% end %> 
-</div>
+    
+</section>
