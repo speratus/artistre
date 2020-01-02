@@ -3,7 +3,7 @@
 </h1>
 
 <h2>Artist: <%= @session.artist.name %></h2>
-<h2>Studio: <%= @session.studio.name %></h2>
+<h2>Studio: <%= link_to @session.studio.name, studio_path(@session.studio) %></h2>
 
 <%= link_to "Edit Session", edit_artist_session_path(@session.id) %>
 <%= link_to "Delete Session", artist_session_path(@session.id), method: :delete %>

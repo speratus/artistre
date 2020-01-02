@@ -4,9 +4,13 @@
 
 <h3><%= @artist.user_name %></h3>
 <div><%= link_to "New Session", new_artist_session_path(@artist.id) %></div>
+<% if @artist.sessions.count > 0 %>
 <% next_sessn = next_session(@artist) %>
+<% if next_sessn == nil %>
+<div> No Upcoming Sessions </div>
+<%else%>
 <br><div> Next Session: <%= link_to next_sessn.show_date_and_time, artist_session_path(id: next_sessn.id, artist_id: next_sessn.artist_id) %>
-
+<%end%>
 <ul>
     <% @artist.sessions.each do |session| %>
         <li>
@@ -15,6 +19,9 @@
     <% end %>
 
 </ul>
+<% else %>
+<div> You have no sessions currently scheduled </div>
+<%end%>
 
 <br>
 

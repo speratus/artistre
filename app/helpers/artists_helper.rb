@@ -5,8 +5,6 @@ module ArtistsHelper
 
     end
 
-    private
-
     def get_future_sessions(sessions)
         sessions.where("appointment > ?", DateTime.now )
     end
