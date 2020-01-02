@@ -1,36 +1,52 @@
 <section class='hero is-primary'>
-<div class='hero-body'>
-<div class='container'>
-<h1 class='title'><%= @artist.name %></h1>
+    <div class='hero-body'>
+        <div class='container'>
+            <h1 class='title'>
+                <%= @artist.name %>
+            </h1>
 
-<h2 class='subtitle'>Hometown: <%= @artist.hometown %></h2>
-<h3 class='subtitle'>Username: <%= @artist.user_name %></h3>
-</div>
-</div>
+            <h2 class='subtitle'>
+                Hometown: <span class="has-text-weight-bold">
+                    <%= @artist.hometown %>
+                </span>
+            </h2>
+            <h3 class='subtitle'>
+                Username: <span class="has-text-weight-bold">
+                    <%= @artist.user_name %>
+                </span>
+            </h3>
+        </div>
+    </div>
 </section>
 
 <section class='section has-background-white-ter'>
-<% if @artist.sessions.count > 0 %>
-<% next_sessn = next_session(@artist) %>
-<% if next_sessn == nil %>
-<div> No Upcoming Sessions </div>
-<%else%>
-<br><div> Next Session: <%= link_to next_sessn.show_date_and_time, artist_session_path(id: next_sessn.id, artist_id: next_sessn.artist_id) %>
-<%end%>
-<ul>
-    <% @artist.sessions.each do |session| %>
-        <li>
-            <%= link_to session.show_date_and_time, artist_session_path(id: session.id, artist_id: session.artist_id) %>
-        </li>
-    <% end %>
+    <% if @artist.sessions.count > 0 %>
+    <% next_sessn = next_session(@artist) %>
+        <% if next_sessn == nil %>
+            <div> No Upcoming Sessions </div>
+        <%else%>
+            <br>
+            <div class="is-size-4"> Next Session: <%= link_to next_sessn.show_date_and_time, artist_session_path(id: next_sessn.id, artist_id: next_sessn.artist_id) %></div>
+            <br>
+            <p class="subtitle">All Sessions</p>
+        <%end%>
+    <ul>
+        <% @artist.sessions.each do |session| %>
+            <li>
+                <%= link_to session.show_date_and_time, artist_session_path(id: session.id, artist_id: session.artist_id) %>
+            </li>
+        <% end %>
 
-</ul>
-<% else %>
-<div> You have no sessions currently scheduled </div>
-<%end%>
+    </ul>
+    <% else %>
+        <div> You have no sessions currently scheduled </div>
+    <% end %>
 </section>
 <br>
-<div class='buttons'>
-<%= link_to "Edit Artist Info", edit_artist_path(@artist), class: 'button is-link'%>
-<%= link_to "Logout", '/logout', class: 'button is-link' %>
-</div>
+
+<section class="section">
+    <div class='buttons'>
+        <%= link_to "Edit Artist Info", edit_artist_path(@artist), class: 'button is-link'%>
+        <%= link_to "Logout", '/logout', class: 'button is-link' %>
+    </div>
+</section>

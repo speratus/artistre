@@ -1,16 +1,22 @@
 <section class='hero is-primary'>
-<div class='hero-body'>
-<div class='container'>
-<h1 class='title'> Studios </h1>
-</div>
-</div>
+    <div class='hero-body'>
+        <div class='container'>
+            <h1 class='title'> Studios </h1>
+        </div>
+    </div>
 </section>
+
 <section class='section has-background-white-ter'>
-<% @studios.each do |studio| %>
-<div class='level'> 
-<div class='level-item'>
-<%= link_to studio.name, studio_path(studio) %>
-</div>
-</div>
-<% end %>
+    <div class="tile is-ancestor" style="flex-wrap: wrap;">
+        <% @studios.each do |studio| %>
+            <div class="tile is-parent is-4">
+                <div class="tile">
+                    <div class='box'> 
+                        <%= link_to studio.name, studio_path(studio), class: 'is-size-2' %>
+                        <p class="subtitle"><%= studio.location %></p>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
 </section>

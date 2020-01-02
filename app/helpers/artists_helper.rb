@@ -9,4 +9,8 @@ module ArtistsHelper
         sessions.where("appointment > ?", DateTime.now )
     end
 
+    def get_past_sessions(sessions)
+        sessions.where("appointment < ?", DateTime.now)
+    end
+
 end

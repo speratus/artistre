@@ -9,12 +9,12 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="has-background-white-ter">
   <nav class = 'navbar'>
     <div class = 'navbar-brand'>
     <%= link_to login_path, class: 'navbar-item' do %>
     <span class='icon is-medium'>
-    <i class='mdi mdi-music-clef-alto mdi-36px'></i>
+    <i class='mdi mdi-music-clef-alto mdi-36px has-text-primary'></i>
     </span>
      <span class='is-family-monospace has-text-weight-bold'> ArtistRe </span>
     <%end%>
@@ -24,14 +24,14 @@
       <% if session[:artist_id] != nil %>
 
           <%= link_to artist_path(session[:artist_id]), class: 'navbar-item' do %>
-            <span class='icon'>
+            <span class='icon has-text-info'>
             <i class='mdi mdi-account-circle mdi-24px'></i>
             </span>
             <span> Profile </span>
           <%end%>
 
           <%= link_to new_artist_session_path(session[:artist_id]), class: 'navbar-item' do %>
-          <span class='icon'>
+          <span class='icon has-text-success'>
           <i class='mdi mdi-music-note-plus mdi-24px'></i>
           </span>
           <span> New Session </span>
@@ -40,7 +40,7 @@
       <% end %>
 
           <%= link_to studios_path, class: 'navbar-item' do %>
-            <span class='icon'>
+            <span class='icon has-text-warning'>
               <i class='mdi mdi-microphone-variant mdi-24px'></i>
             </span>
             <span> Studios </span>

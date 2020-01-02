@@ -6,40 +6,43 @@
     </div>
 </section>
 
-<div class='has-background-white-ter'>
-<div class='columns'>
-<div class='column is-half'>
-<%= form_for(@session, url: artist_sessions_path) do |f| %>
+<section class='section has-background-white-ter'>
+    <div class='columns'>
+        <div class='column is-half'>
+            <%= form_for(@session, url: artist_sessions_path) do |f| %>
 
-    <section class='has-text-danger'>
-    <% if @session.errors.any? %>
-        <ul>
-            <% @session.errors.full_messages.each do |msg| %>
-                <li class = 'has-text-danger'>
-                    <%= msg %>
-                </li>
+                <section class='has-text-danger'>
+                <% if @session.errors.any? %>
+                    <ul>
+                        <% @session.errors.full_messages.each do |msg| %>
+                            <li class = 'has-text-danger'>
+                                <%= msg %>
+                            </li>
+                        <% end %>
+                    </ul>
+                <% end %>
+                </section>
+
+                <div class='control'>
+                    <%= f.label :appointment, class: 'label' %>
+                    <%= f.datetime_select :appointment, {discard_minute: true, ampm: true, start_hour: 10, end_hour: 20, start_year: Time.now.year}, {class: 'select'} %>
+                </div>
+                <br>
+
+                <div class='control'>
+                    <%= f.label :studio_id, class: 'label' %>
+                    <div class='select'>
+                        <%= f.collection_select :studio_id, Studio.all, :id, :name %>
+                    </div>
+                </div>
+                <br>
+                
+                <div class="buttons">
+                <%= f.submit class: 'button is-info' %>
+                <%= link_to "Cancel", session[:previous_page], class: 'button is-info is-light'%>
+                </div>
+
             <% end %>
-        </ul>
-    <% end %>
-    </section>
-    <div class='control'>
-    <%= f.label :appointment, class: 'label' %>
-    <%= f.datetime_select :appointment, {discard_minute: true, ampm: true, start_hour: 10, end_hour: 20, start_year: Time.now.year}, {class: 'select'} %>
+        </div>
     </div>
-    <br>
-
-    <div class='control'>
-    <%= f.label :studio_id, class: 'label' %>
-    <div class='select'>
-    <%= f.collection_select :studio_id, Studio.all, :id, :name %>
-    </div>
-    </div>
-    <br>
-
-    <%= f.submit class: 'button is-info' %>
-    <%= link_to "Cancel", session[:previous_page], class: 'button is-info is-light'%>
-
-<% end %>
-</div>
-</div>
-</div>
+</section>
