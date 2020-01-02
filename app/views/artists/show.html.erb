@@ -4,12 +4,11 @@
 <h1 class='title'><%= @artist.name %></h1>
 
 <h2 class='subtitle'>Hometown: <%= @artist.hometown %></h2>
+<h3 class='subtitle'>Username: <%= @artist.user_name %></h3>
 </div>
 </div>
 </section>
 
-<h3>Username: <%= @artist.user_name %></h3>
-<div><%= link_to "New Session", new_artist_session_path(@artist.id) %></div>
 <section class='section has-background-white-ter'>
 <% if @artist.sessions.count > 0 %>
 <% next_sessn = next_session(@artist) %>

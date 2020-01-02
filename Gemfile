@@ -25,6 +25,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt'
 gem 'faker'
 gem 'bulma-rails'
+gem 'material_design_icons'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
