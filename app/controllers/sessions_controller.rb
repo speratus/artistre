@@ -51,7 +51,9 @@ class SessionsController < ApplicationController
 
     def get_session
         @session = Session.find_by(id: params.require(:id))
-        return head(:forbidden) unless @session.artist_id == session[:artist_id]
+        unless @session.artist_id == session[:artist_id]
+            redirect_to session[:previous_page]
+        end
     end
 
 end
