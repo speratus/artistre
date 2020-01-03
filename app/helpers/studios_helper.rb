@@ -1,4 +1,7 @@
+require 'sessions_by_date'
+
 module StudiosHelper
+    include SessionsByDate
     def top_artist(studio)
         hash = {}
         temp = studio.sessions

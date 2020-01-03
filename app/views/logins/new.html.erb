@@ -10,7 +10,7 @@
 <section class="section">
     
     <% if flash[:error] %>
-        <div class ="error"><%= flash[:error] %></div>
+        <div class ="is-danger"><%= flash[:error] %></div>
     <% end %>
 
     <%= form_tag('/login/') do %>

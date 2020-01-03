@@ -1,16 +1,14 @@
+require 'sessions_by_date'
+
 module ArtistsHelper
+    include SessionsByDate
+
     def next_session(artist)
        val = get_future_sessions(artist.sessions)
        val.order('appointment asc').first
 
     end
 
-    def get_future_sessions(sessions)
-        sessions.where("appointment > ?", DateTime.now )
-    end
-
-    def get_past_sessions(sessions)
-        sessions.where("appointment < ?", DateTime.now)
-    end
+    
 
 end

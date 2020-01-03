@@ -1,21 +1,73 @@
 <section class='hero is-primary'>
-<div class='hero-body'>
-<div class='container'>
-<h1 class='title'><%= @studio.name %></h1>
-<h2 class='subtitle'><%= @studio.location %></h2>
-</div>
-</div>
+    <div class='hero-body'>
+        <div class='container'>
+            <h1 class='title'><%= @studio.name %></h1>
+            <h2 class='subtitle'>
+                Location: <span class="has-text-weight-bold">
+                    <%= @studio.location %>
+                </span>
+            </h2>
+        </div>
+    </div>
 </section>
-<% if @studio.sessions.count > 0 %>
-<% tp_artist = top_artist(@studio) %>
-<div>Artist that records here the most: <%= link_to tp_artist.name, artist_path(tp_artist) %> </div>
 <section class='section has-background-white-ter'>
-<ul>
-    <% @studio.sessions.each do |ssn| %>
-    <li><%= link_to ssn.show_date_and_time, studio_session_path(id: ssn.id, studio_id: ssn.studio_id) %></li>
+    <% if @studio.sessions.count > 0 %>
+    <% future_sessions = get_future_sessions(@studio.sessions) %>
+    <% past_sessions = get_past_sessions(@studio.sessions) %>
+    <% tp_artist = top_artist(@studio) %>
+
+    <p class="content">
+        Favorite Studio of <%= link_to tp_artist.name, artist_path(tp_artist) %>
+    </p>
+    <div class="level">
+        <div class="level-left">
+            <div class="level-item">
+                <div class="container">
+                    <h1 class="title">
+                        Upcoming Sessions
+                    </h1>
+                    <ul class='content'>
+                        <% if future_sessions.count > 0 %>
+                            <% future_sessions.each do |ssn| %>
+                                <li>
+                                    <%= link_to ssn.show_date_and_time, studio_session_path(id: ssn.id, studio_id: ssn.studio_id) %>
+                                </li>
+                            <% end %>
+                        <% else %>
+                            <p class="content">
+                                There are no upcoming sessions.
+                            </p>
+                        <% end %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="level-right">
+            <div class="level-item">
+                <div class="container">
+                    <h1 class="title">
+                        Past Sessions
+                    </h1>
+                    <div class="content">
+                        <% if past_sessions.count > 0 %>
+                            <ul>
+                                <% past_sessions.each do |session| %>
+                                    <li>
+                                        <%= link_to session.show_date_and_time, studio_session_path(id: session.id, studio_id: session.studio_id) %>
+                                    </li>
+                                <% end %>
+                            </ul>
+                        <% else %>
+                            <p class="content">
+                                There are no past sessions.
+                            </p>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% else %>
+        <p class="content"> There are no sessions scheduled for this studio yet. </p>
     <% end %>
-</ul>
-<% else %>
-<div> There are no sessions scheduled for this studio. </div>
-<% end %>
 </section>
