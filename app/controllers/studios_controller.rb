@@ -7,6 +7,4 @@ class StudiosController < ApplicationController
         @studio = Studio.find_by(id: params[:id])
     end
 
-    private
-
 end
