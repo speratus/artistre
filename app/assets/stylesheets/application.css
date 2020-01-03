@@ -17,3 +17,7 @@
 
  @import 'bulma.min.css';
 
+ #studios-tiles {
+     flex-wrap: wrap;
+ }
+
