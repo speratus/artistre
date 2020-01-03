@@ -14,6 +14,10 @@
                     <div class='box'> 
                         <%= link_to studio.name, studio_path(studio), class: 'is-size-2' %>
                         <p class="subtitle"><%= studio.location %></p>
+
+                        <% if studio.sessions.count > 0 %>
+                            <p class="content">Favorite Studio of <span class="has-text-weight-semibold"><%= top_artist(studio).name %></span></p>
+                        <% end %>
                     </div>
                 </div>
             </div>
