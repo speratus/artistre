@@ -1,24 +1,9 @@
-# README
+# Artistre
+Artistre is a site to help artists schedule recording sessions at studios. Artists can log in and schedule sessions. Guests can view
+Sessions scheduled at studios.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Features
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Artists can view locations and future sessions of studios
+* Artists can schedule recording sessions for free blocks at studios
+* Artists can edit their information as well as info
