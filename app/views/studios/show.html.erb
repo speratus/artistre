@@ -22,11 +22,25 @@
     <div class="level">
         <div class="level-left">
             <div class="level-item">
-                <div class="container">
+            
                     <h1 class="title">
                         Upcoming Sessions
                     </h1>
-                    <ul class='content'>
+            </div>
+        </div>
+        <div class="level-right">
+            <div class="level-item">
+                    <h1 class="title">
+                        Past Sessions
+                    </h1>
+            </div>
+        </div>
+    </div>
+    <div class="level">
+        <div class="level-left">
+            <div class="level-item">
+                <div class="container">
+                    <ul class="content">
                         <% if future_sessions.count > 0 %>
                             <% future_sessions.each do |ssn| %>
                                 <li>
@@ -45,24 +59,19 @@
         <div class="level-right">
             <div class="level-item">
                 <div class="container">
-                    <h1 class="title">
-                        Past Sessions
-                    </h1>
-                    <div class="content">
-                        <% if past_sessions.count > 0 %>
-                            <ul>
-                                <% past_sessions.each do |session| %>
-                                    <li>
-                                        <%= link_to session.show_date_and_time, studio_session_path(id: session.id, studio_id: session.studio_id) %>
-                                    </li>
-                                <% end %>
-                            </ul>
-                        <% else %>
-                            <p class="content">
-                                There are no past sessions.
-                            </p>
-                        <% end %>
-                    </div>
+                    <% if past_sessions.count > 0 %>
+                        <ul class="content">
+                            <% past_sessions.each do |session| %>
+                                <li>
+                                    <%= link_to session.show_date_and_time, studio_session_path(id: session.id, studio_id: session.studio_id) %>
+                                </li>
+                            <% end %>
+                        </ul>
+                    <% else %>
+                        <p class="content">
+                            There are no past sessions.
+                        </p>
+                    <% end %>
                 </div>
             </div>
         </div>
